@@ -5,14 +5,9 @@ This python module is used to save and load tensors in binary files.
 - Numpy (tensors).
 
 ## To save:
-
-  import tens
-  tens.save(data, "data/tensor.tens")
-
+_import tens_
+_tens.save(data, "data/tensor.tens")_
 
 ## To load:
-
-  import tens
-  data = tens.load("data/tensors.tens")
-
-
+_import tens_
+_data = tens.load("data/tensors.tens")_
