@@ -20,7 +20,7 @@ data = tens.load("data/tensors.tens")
 ```python
 # This example create, save then load a tensor
 
-from cc.ai import tens
+import tens
 import numpy as np
 
 
