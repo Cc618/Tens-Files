@@ -48,3 +48,7 @@ data = tens.load(data_path)
 print("---")
 print("Loaded data:", data)
 ```
+
+## Other things:
+- This project is under the MIT License.
+- I will maybe release a C++ version.
