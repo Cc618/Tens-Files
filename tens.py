@@ -16,8 +16,6 @@ import struct
 
 import numpy as np
 
-from cc.exception import CcException
-
 
 
 class DataType():
