@@ -2,7 +2,7 @@
 This python module is used to save and load tensors in binary files. 
 
 ## Depedencies:
-- Numpy (tensors).
+- Numpy (tensors)
 
 ## To save:
 ```python
@@ -50,5 +50,5 @@ print("Loaded data:", data)
 ```
 
 ## Other things:
-- This project is under the MIT License.
-- I will maybe release a C++ version.
+- This project is under the MIT License
+- I will maybe release a C++ version
