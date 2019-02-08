@@ -76,23 +76,23 @@ def load(file_path):
         # Nombre magique
         magic_nb = f.read(2)
         if magic_nb != b"Cc":
-            raise CcException("Fichier tens inconnu (nombre magique)")
+            raise Exception("Fichier tens inconnu (nombre magique)")
 
         # Type de données
         data_type = DataType.get_data_dtype(struct.unpack("<H", f.read(2))[0])
         if data_type == DataType.SPECIAL:
-            raise CcException("Type de tenseur inconnu ou non supporté")
+            raise Exception("Type de tenseur inconnu ou non supporté")
 
         # Nombre de dimensions
         dimensions = struct.unpack("<I", f.read(4))[0]
         
         # Taille de chaque dimension
         shape = []
-        size = 0
+        size = 1
         for d in range(dimensions):
             s = struct.unpack("<I", f.read(4))[0]
             shape.append(s)
-            size += s
+            size *= s
 
 
         # Données
@@ -100,6 +100,8 @@ def load(file_path):
         for i in range(size):
             d = struct.unpack(data_type[2], f.read(data_type[3]))[0]
             tensor[i] = d
+
+        tensor.shape = shape
 
         return tensor
 
@@ -114,7 +116,7 @@ def save(tensor, file_path):
         # Type de données
         data_type = DataType.get_tensor_type(tensor)
         if data_type == DataType.SPECIAL:
-            raise CcException("Type de tenseur inconnu ou non supporté")
+            raise Exception("Type de tenseur inconnu ou non supporté")
 
         f.write(struct.pack("<H", data_type[0]))
 
